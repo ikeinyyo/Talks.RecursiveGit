@@ -12,7 +12,86 @@ python main.py
 
 A medida que vayamos avanzando en el tutorial, iremos completando los métodos, haciendo que pasen todos los tests.
 
-## 1. Squash
+## 1. Git flow
+
+Vamos a empezar creando una rama para implementar una nueva funcionalidad sobre el fichero `functs.py`. Vamos a simular que somos 2 personas diferentes trabajando y generando código (y probablemente conflictos).
+
+### Demo
+
+Primero vamos a crear una rama para implementar fibonacci de forma recusiva. Llamamos a la rama `feature/fib`.
+
+```sh
+git checkout -b feature/fib
+```
+
+A continuación vamos a implementar el código en el fichero `functs.py`. También vamos a implementar el método `return_zero` para provocar un conflicto más adelante.
+
+```py
+def return_zero():
+    return 0
+
+
+def fib(n):
+    if n <= return_zero():
+        return return_zero()
+    elif n <= 1:
+        return n
+    else:
+        return fib(n-1) + fib(n-2)
+```
+
+Ahora hacemos un commit para proteger nuestro trabajo.
+
+```sh
+git commit -a -m "Add fibonacci"
+```
+
+A continuación, vamos a simular que somos otro compañero o compañera que tiene que implementar la función MCD (máximo común divisor). Nos vamos a la rama `main` y creamos una nueva rama llamada `feature/mcd`.
+
+```sh
+git checkout -b feature/mcd
+```
+
+Ahora implementamos el método de `mcd` y el `return_zero`.
+
+```py
+def return_zero():
+    return 15 - 15
+
+def mcd(a, b):
+    raise NotImplementedException()
+```
+
+Ahora hacemos commit para guardar nuestros cambios:
+
+```sh
+git commit -a -m "Add mcd"
+```
+
+Por último vamos a la rama `main` y hacemos un `merge` con el trabajo que acabamos de realizar.
+
+**Nota:** en el futuro esta integración de código se hará a través de Pull Requests.
+
+```sh
+git checkout main
+git merge feature/mcd
+```
+
+Ahora vamos de nuevo a `feature/fib` a intentar traernos los cambios de `main` usando `rebase`.
+
+```sh
+git checkout feature/fib
+git rebase main
+```
+
+Ahora debe aparecer conflictos en el método `return_zero`. Los resolvemos, añadimos los cambios al stage y continuamos con el `rebase`.
+
+```sh
+git add rlib/functs.py
+git rebase --continue
+```
+
+## 2. Squash
 
 El Squash es una técnica que nos permite agrupar los cambios de varios `commit` en uno.
 
@@ -30,7 +109,7 @@ Lo que indicamos es el número de `commit` que queremos agrupar. Para que sea m�
 git rebase -i origin/master
 ```
 
-## 2. Squash - Tutorial
+## Demo
 
 ### Nueva rama de feature
 

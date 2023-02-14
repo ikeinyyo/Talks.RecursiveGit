@@ -5,6 +5,8 @@ from rlib.functs import fib, mcd
 
 def create_test():
     return [
+        {'test': lambda: fib(-1), 'expected': 0,
+         'method': "fibonacci of -1"},
         {'test': lambda: fib(0), 'expected': 0,
          'method': "fibonacci of 0"},
         {'test': lambda: fib(1), 'expected': 1,
@@ -12,7 +14,7 @@ def create_test():
         {'test': lambda: fib(8), 'expected': 21,
          'method': "fibonacci of 8"},
 
-        {'test': lambda: mcd(1, 0), 'expected': 0,
+        {'test': lambda: mcd(1, 0), 'expected': 1,
          'method': "mcd of 1 and 0"},
         {'test': lambda: mcd(1, 1), 'expected': 1,
          'method': "mcd of 1 and 1"},
