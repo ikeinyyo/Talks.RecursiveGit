@@ -237,7 +237,7 @@ Lo siguiente que hacemos es hacer un Squash de nuestros dos `commit` y subir la 
 
 Hacemos una Pull Request, pero nosotros tenemos que seguir trabajando.
 
-### Nueva rama y Rebase
+### Nueva rama y Rebase
 
 Una vez que hemos hecho la Pull Request, tenemos que dejar tiempo para que nuestros compañeros puedan revisarla y validarla. Pero nosotros tenemos que seguir trabajando.
 
@@ -323,7 +323,7 @@ Lo siguiente que hacemos, es volver a la rama `feature/calc-1` y hacer un `rebas
 (feature/calc-1)$ git rebase origin/master
 ```
 
-## Fac
+## Fac
 
 Continuamos con nuestro trabajo de forma normal en la rama `feature/calc-1`. Añadimos ahora, la función `fac` y hacemos `commit`.
 

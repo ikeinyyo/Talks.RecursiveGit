@@ -1,8 +1,10 @@
 def ok(method):
     print("{}... Ok".format(method))
 
+
 def ko(method, expected, found):
     print("{}... Error - Expected '{}' but found '{}'".format(method, expected, found))
+
 
 def run_test(tests):
     pass_test = 0
